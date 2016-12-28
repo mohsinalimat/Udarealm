@@ -15,7 +15,7 @@ target 'Udarealm' do
   pod 'Masonry'
   pod 'pop'
   pod 'Realm'
-  pod 'AMapLocation'
+ # pod 'AMapLocation'
   pod 'CocoaLumberjack'
   pod 'Firebase/Core'
 
