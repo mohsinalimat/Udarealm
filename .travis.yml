@@ -17,9 +17,6 @@ before_install:
 - gem install cocoapods
 - gem install fir-cli
 before_script:
-- pod --version
-- pod install --verbose --no-repo-update
-
 - openssl aes-256-cbc -k "$ENCRYPTION_SECRET" -in scripts/profile/$PROFILE_NAME.mobileprovision.enc
   -d -a -out scripts/profile/$PROFILE_NAME.mobileprovision
 - openssl aes-256-cbc -k "$ENCRYPTION_SECRET" -in scripts/certs/dist.cer.enc -d -a
@@ -28,6 +25,8 @@ before_script:
   -out scripts/certs/dist.p12
 
 - ./scripts/add-key.sh
+
+- pod install --verbose --no-repo-update
 script:
 - xcodebuild -workspace $APP_NAME.xcworkspace -scheme Today    -sdk iphoneos -configuration
   Release ONLY_ACTIVE_ARCH=NO OBJROOT=$PWD/build SYMROOT=$PWD/build CODE_SIGN_IDENTITY="$DEVELOPER_NAME"
