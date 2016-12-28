@@ -7,6 +7,7 @@ env:
   matrix:
   - OS='10.1' name='iPhone 6'
   global:
+  - APP_NAME="Udarealm"
   - 'DEVELOPER_NAME="iPhone Distribution: Nanjing Viroyal Network Technology Co.,
     Ltd. (N7F69UBB9A)"'
   - PROFILE_NAME="Udarealm_Ad_Hoc"
@@ -18,9 +19,11 @@ before_script:
 - pod install --verbose
 - ./scripts/add-key.sh
 script:
-- xcodebuild -destination "platform=iOS Simulator,OS=10.1,name=iPhone 6" -workspace
-  Udarealm.xcworkspace -scheme Today    -sdk iphoneos ONLY_ACTIVE_ARCH=NO
+- xcodebuild -workspace $APP_NAME.xcworkspace -scheme Today    -sdk iphoneos -configuration Release ONLY_ACTIVE_ARCH=NO
   CODE_SIGN_IDENTITY="$DEVELOPER_NAME"
-- xcodebuild -destination "platform=iOS Simulator,OS=10.1,name=iPhone 6" -workspace
-  Udarealm.xcworkspace -scheme Udarealm -sdk iphoneos ONLY_ACTIVE_ARCH=NO
+- xcodebuild -workspace $APP_NAME.xcworkspace -scheme APP_NAME -sdk iphoneos -configuration Release ONLY_ACTIVE_ARCH=NO
   CODE_SIGN_IDENTITY="$DEVELOPER_NAME"
+after_success:
+- "./scripts/sign-and-upload.sh"
+after_script:
+- "./scripts/remove-key.sh"

@@ -208,6 +208,8 @@
 		03F32E431D69627100572B84 /* SplashView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SplashView.h; path = ../Views/SplashView.h; sourceTree = "<group>"; };
 		03F32E441D69627100572B84 /* SplashView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SplashView.m; path = ../Views/SplashView.m; sourceTree = "<group>"; };
 		9CCEE265F8955DEB8E47CC5A /* Pods-Udarealm.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Udarealm.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Udarealm/Pods-Udarealm.debug.xcconfig"; sourceTree = "<group>"; };
+		AE12EE5E1E1385250092FC8B /* remove-key.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; name = "remove-key.sh"; path = "scripts/remove-key.sh"; sourceTree = SOURCE_ROOT; };
+		AE12EE5F1E1385250092FC8B /* sign-and-upload.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; name = "sign-and-upload.sh"; path = "scripts/sign-and-upload.sh"; sourceTree = SOURCE_ROOT; };
 		AE200F131E0972F40089F39D /* GlowImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlowImageView.h; sourceTree = "<group>"; };
 		AE200F141E0972F40089F39D /* GlowImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlowImageView.m; sourceTree = "<group>"; };
 		AE200F151E0972F40089F39D /* MenuButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuButton.h; sourceTree = "<group>"; };
@@ -336,6 +338,7 @@
 				0362FB461CF30DDE003EDD82 /* Assets.xcassets */,
 				0362FB4B1CF30DDE003EDD82 /* Info.plist */,
 				035077671DAF7E2300250C9E /* GoogleService-Info.plist */,
+				AE12EE5D1E1384F30092FC8B /* travis */,
 				0362FB371CF30DDE003EDD82 /* Supporting Files */,
 			);
 			path = Udarealm;
@@ -348,8 +351,6 @@
 				03B076A21CF31DA600C1846B /* UdarealmPrefixHeader.pch */,
 				038152041D8401D000417ECD /* Udarealm.entitlements */,
 				AEEB2A5C1E13831F00F54093 /* .gitignore */,
-				AEA7AE601E1343F900C44636 /* .travis.yml */,
-				AEEB2A5B1E13767F00F54093 /* add-key.sh */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -571,6 +572,17 @@
 			);
 			name = Splash;
 			path = Udarealm/Categories;
+			sourceTree = "<group>";
+		};
+		AE12EE5D1E1384F30092FC8B /* travis */ = {
+			isa = PBXGroup;
+			children = (
+				AEA7AE601E1343F900C44636 /* .travis.yml */,
+				AEEB2A5B1E13767F00F54093 /* add-key.sh */,
+				AE12EE5F1E1385250092FC8B /* sign-and-upload.sh */,
+				AE12EE5E1E1385250092FC8B /* remove-key.sh */,
+			);
+			name = travis;
 			sourceTree = "<group>";
 		};
 		AE200F111E0972F40089F39D /* PopMenu */ = {
