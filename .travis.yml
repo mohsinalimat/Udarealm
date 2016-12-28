@@ -1,0 +1,26 @@
+
+# reference: http://www.objc.io/issue-6/travis-ci.html
+
+# whitelist
+branches:
+  only:
+    - master
+language: objective-c
+osx_image: xcode8.1
+env:
+    matrix:
+    - OS='10.1' name='iPhone 6'
+    
+before_install:
+#    - gem install xcpretty
+  - gem install cocoapods
+before_script:
+  - pod --version
+  - pod install --verbose
+#    - pod repo update
+#    - pod lib lint --allow-warnings
+script:
+- xcodebuild -list
+- xcodebuild clean -workspace Udarealm.xcworkspace -scheme Udarealm
+- xcodebuild -destination "platform=iOS Simulator,OS=10.1,name=iPhone 6" -workspace Udarealm.xcworkspace -scheme Udarealm -sdk iphonesimulator10.1 ONLY_ACTIVE_ARCH=NO CODE_SIGNING_REQUIRED=NO | xcpretty -t;
+
