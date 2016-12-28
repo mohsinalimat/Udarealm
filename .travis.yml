@@ -7,7 +7,7 @@ env:
   matrix:
   - OS='10.1' name='iPhone 6'
   global:
-  - DEVELOPER_NAME="iPhone Distribution: Nanjing Viroyal Network Technology Co., Ltd. (N7F69UBB9A)"
+  - 'DEVELOPER_NAME="iPhone Distribution: Nanjing Viroyal Network Technology Co., Ltd. (N7F69UBB9A)"'
   - PROFILE_NAME="Udarealm_Ad_Hoc"
   - secure=oBPMA728r2iWO3oMsdFfPTDAT7pjY2RiiqZCeUEgAWoocphZc45bKGMctwmHQgxzcrqBTOpUJFl5SUbqnXoul7G5R8Qo2OQTSypWsoAl6jYMGAKQArwcl/ONgGsCtKWIJbBlFSvUg8G1Brys+yoBalqmHqNWVIGm9C94iT7mwqlM0VZeP3BU+4EjtP1DrmfrKuK/0UFkfrMXMZByI/bodis/z4wZ1rqzmiK+pyYq5lgR3BXYCuy27bQaI0kUr65gvKhUl0V5LGstfc25Z1XROTyJfA+boOl5gi+33GtgAqQLdTlwFq+IHSLm6i2RHhNgfYFFSJyLQBZeo7h5OM+O5NFbNg4BW2nZ7nm3Q5uT82GtMYpCCQKX3rHazcOcCJ9idvGnOYHhfVXvIHBgYqPkdzhyc19mdDY5inbTmy7i38/+Mpurnga7ifZ5YThuQEmKMnUkrG4Bk0ztNTsSNZzId+vaVcobva6N5qTfzeHhVFX73OqafOIafqWYIw7MeiPU9eKI0J31HGO57E54mpQaFtfiM9NMZaGYI7zW7ePVhf/kxwo0r92VmQ6oeX3Sm3HQBNRPNJSMLN4+3/35ZxRs3UfqHE4QE44MDXFwuVaLnMhiksarG73gpfeMZOXCwykn+IbME1hkzwWOPa1yYw9UySTLChxpXE4A8b05ehQ3tbY=
 before_install:
@@ -18,7 +18,7 @@ before_script:
 - "./scripts/add-key.sh"
 script:
 
-- xcodebuild clean
+#- xcodebuild clean
 - xcodebuild -destination "platform=iOS Simulator,OS=10.1,name=iPhone 6" -workspace
   Udarealm.xcworkspace -scheme Today -sdk iphonesimulator10.1 ONLY_ACTIVE_ARCH=NO
   CODE_SIGN_IDENTITY=$DEVELOPER_NAME
