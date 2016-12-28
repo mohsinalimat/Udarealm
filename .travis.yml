@@ -11,7 +11,7 @@ env:
   - 'DEVELOPER_NAME="iPhone Distribution: Nanjing Viroyal Network Technology Co.,
     Ltd. (N7F69UBB9A)"'
   - PROFILE_NAME="Udarealm_Ad_Hoc"
-  - secure=Yw4mET1EdvLuJhboZv16s6MQ/J9/TsN4FnmmZ7EoTE1dn9xiVAE64m2Pd33YKn0ogVUVxtaS3rSZACFA12swojfJwkUhrJr0DtpMQYfhSCG2T84Mv841OVJBSjRbZU179ybVrrlRD8fHnPwIcruSAiURdmLbEZpCPBFShM4lj/PW1lwscRHbWIUegG9DyVGlSu//5I/+b1O6l1PlLr6szQIh7i1Y3JSiqlA5j+e7b7NUuwPQ2+c8VSqprL+JLRt6qYeyFMsmU2c9Ch2s09M84KlRhjaqThxJK18XatkWiQweM05B2rGwxbO5zm2quuPEcQZfBPibonzWd6BhHJAD9uCGC0xk82GBw0ylbYClu0Vx5BXztZ9VWPhjZd0Vxhm3wHU1/yb2m5brimpnUp0RbIPIORtQHDGSOdWZRRKsYheHH87rwVDqwpP6d0ApPtMsNWuTxK7yoQZgftp7gku3Jt3ReDh3UY5ez2bmd/swRAmkAtWzviIeHQM0G96keXSNhDjGUAJzSyDRKWlsNFFbYRS2dNPf14/43cAW+PmIgydfqxjqBSrxOv/Uo+ItQifxebhKR9F7ve5p9w6jPeQSsGpTitIQt8xUqu1MskNBliZHkQW1BT0OGMyfYG+jOLrPZoeu7V0nFb2hJlW5J2EqxDOYSBMmfA6t7IkxqrP6NCs=
+  - secure: fp6+OWfqSq9fRCaJ1XqZtAVjF5aJgxFxOyDIZc4WA2J8EfufzWAQvTYwKuCZv7ZQGM6ubbOsnq5XS5Udm8WuAppJ3Yis+h+gonPltXPH/SdSoAkwjHw+9tyLKY+6t8N9oMueTwN97tMQb+PrdX02EVdwwhZDk7HyrosLASJeiNFeiYFbyeg+jCHF0gsuUzvbtuQyTKuXre6fAsjbF4iMn1TgR1b0YGYsKthMn2FkDDaLpRwFXGj0V0a6JVlBtMneZQBGCVXL2x2Gvafd9VvR1s3rNp4lodWmx4GBEKFShesmJqhwFVqto5gwTRzfFRbxFaFKMeQfFceiYGSLMMq7/eJV1oKOiT8ggHi3Yl/UqQ3MbQSobNs8VQ01rQJ4YpxGaM7YaDnNp3I/GJkHWp4PILeCUsyFBpYNN2W8WfztZphdwj0x3cKefKUJmMpPc7QuKjZ4kIcfS+46ffLdOQKcNsqcziENUaJwcsuv15XMcYtvR6Ad/BwqBhSMfkh8ICwnFXWJWpVIwmhLr5ym0DAmkI8jxtla8sMxsyVpRg8CaAViFC789Hr8QFCM7P3U+t7Ry5y6c4dyPHUX/PkKZS4eW6Ch5RmtmtNmlyjAPswA4ZjEEK89IH62ib+vfCtr4PYzL3pDFv9pYSz7I82jVhN+cAzNdd/wXwJa/NuTk1CdtY4=
 before_install:
 - brew update
 - gem install cocoapods
@@ -23,9 +23,7 @@ before_script:
   -out scripts/certs/dist.cer
 - openssl aes-256-cbc -k "$ENCRYPTION_SECRET" -in scripts/certs/dist.p12.enc -d -a
   -out scripts/certs/dist.p12
-
 - ./scripts/add-key.sh
-
 - pod install --verbose --no-repo-update
 script:
 - xcodebuild -workspace $APP_NAME.xcworkspace -scheme Today    -sdk iphoneos -configuration
