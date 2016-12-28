@@ -23,7 +23,7 @@ before_script:
 script:
 - xcodebuild -workspace $APP_NAME.xcworkspace -scheme Today    -sdk iphoneos -configuration Release ONLY_ACTIVE_ARCH=NO
   CODE_SIGN_IDENTITY="$DEVELOPER_NAME"
-- xcodebuild -workspace $APP_NAME.xcworkspace -scheme APP_NAME -sdk iphoneos -configuration Release ONLY_ACTIVE_ARCH=NO
+- xcodebuild -workspace $APP_NAME.xcworkspace -scheme $APP_NAME -sdk iphoneos -configuration Release ONLY_ACTIVE_ARCH=NO
   CODE_SIGN_IDENTITY="$DEVELOPER_NAME"
 after_success:
 - "./scripts/sign-and-upload.sh"
