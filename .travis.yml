@@ -13,10 +13,12 @@ env:
   - PROFILE_NAME="Udarealm_Ad_Hoc"
   - secure=g/Nm+4jS3y0yMTSRZ4z2OJVBlOD5TVwQ6xAYKq0CHyGgRtlFj9eE6wc0fNAICZdQK15GFGKWfVIazMxGU/qxoYYIIkWkjul565Osn8BXZKp1Z5I84KyXOr6HYCMD5PJdoYr2yrPWK5o7O4zDbr/1//hpA1qWZEmIuH89DNfRsI4witcUokVryCExdx5Tfz6DCR9U162TMdSfddfuWzrJSmzBEuh4lGD0saYhpr1QBlaFju2Nuss5Ncijg4zkCf3OLdOvxNouxNdFNut4O65+4Y+UkOWCdJ8VO0bL9cnQJCzk/TuDHNgJXmROEfF39bUcBnuhBJalHX/1P3In4OMmyNfxguYbUAzh1CHOzwesA0Oq0HU6rNYl71zZiAlf//miaP5in3uZVNNq74jMBd7cw9qffkj9FTOSD5//tvTYFikh+eJRZDer4omZrgNkj06PvhcYg/XCQNX+rtKlXAt2y81s6LhehJRB3UHB+ZldxHRvvQ1qtWdrIJ/d8vRJ9v1JMEXUrjhC1X+0WfcAa3K8uyrnHM6fTuQM/d1aHu6U13smxBgx+9wcaQz1hO8nuswjyLtR42rh0Jrb5oSClzRCaPu5ckIW8QkQNBTaiy3lzA7IOrUqqsO8Zg2Ltee6DMh2OKQz6lRmxnhyGxjtzNYsfqeUSlxadTwEc/Mfqah4f0Q=
 before_install:
+- brew update
 - gem install cocoapods
+- gem install fir-cli
 before_script:
 - pod --version
-- pod install --verbose
+- pod install --verbose --no-repo-update
 - ./scripts/add-key.sh
 script:
 - xcodebuild -workspace $APP_NAME.xcworkspace -scheme Today    -sdk iphoneos -configuration Release ONLY_ACTIVE_ARCH=NO
