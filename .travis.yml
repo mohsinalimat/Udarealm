@@ -12,12 +12,12 @@ env:
     Ltd. (N7F69UBB9A)"'
   - PROFILE_NAME="Udarealm_Ad_Hoc"
   - secure: vBSUxvaEAlWgPHXlOG1N/0hbBZ1muvTyVGX65SvcqX9BkkMHypxEtz3nM47d6On0K9GDngCoAPUfVUvgmazqR5KrBnqZfJs00kY92M5+ik0UM98uz6PDtK6srQthlg/nQEy/2bYn/0Bu6HFPMzQ818K3OUK/bRkayIUfjOmycXKp2v8hyoRiDnAhQLxhb2cMR6P0V7ZgyQHg/WjjteUpT9TGeVRvdWVy4kIHaPuEqbumcgZKc5RmFPpOHS1WR3bHKMbF6CdpJJaDpRfZ47LUh1MM4mQAEcP16RKBtSt8hWAq2lgP3RYh3ZzAr6YWL/qy+/sM2o2UNyRsOO8qqdq1/WM2PIo89oDFWc4B1CKdauBV346pS/jrCgXe1AVkurXy48x0RQSl7G5xWqBU9z6wqMRoolFvRnbpUBbwbAZ5d6/+yXE96VV/CbTZJLRWAQxrUMfcS5cw71MiDt52jSS8q8TZJTDToR9lveQ6lvi+kc5PQU8KJuM9o5fDHzQDGHD7tVYcOlyw+5l1rB7EHHJpsjdjInUYd9wC7hcNsg9JpuZz9C3o/JWlZWGTOIxTGeSjkgtn6jAiV6dg7kRv+fxUMwpt8Cvzdp9xckovxnFJKMYsJzk1MTxrCOpCm30QAk77Eph+liOt3MMCeuyV5+Dogw/zmqXstv/UG4554X9JLVg=
+  - secure: B9gUApKe1dpp+V/TSk8ROHLOSqBqFxXVURq67cWceCYOSu9tflZcUROXx9GywFgDsuA4gfLlVHvTLmNW7sUSjDf39g9ui1hwP3e6YYwNJALhQ/TLqNDn/JvIPAH1VEHBnr7oM7P1Mxj2b7iOBqrrVnxtF+egKik+tjvNnbGeoLBzijNjnMCoQCtXmLHyYKBX21D4vwm9FpoPwzbLqH5Ls+DOmU2qPPU1W+eUP+G9rpRsAK24dyH4d8mwNW6eObGghXYH2EYjyn0yS8FL2oDvr7v5NIGJfuuZrhdB66gGS0XqM9hev5hAI4FG3naxE+L02igX1ObEwN44tc7bQzRyXqLoJlaje4NcVgmB++LbOTXcYq/pT+jLw+lQLxJiNxwYsJRH+cqLUb2Y20i4JF8xtQnM7QK2dNT8ajjltDz6oK6UVUhKgDRFSSbZXTH27ljO3MO1GRMtOxIJb9pko5XCbqUryCqJf2u5HMOOHgdRoFwUkER1sBFQXWM0Jd50ZGEu6mrrMmh9bTVpi2VuQ2TkMd20cZd5BZoUo8uqu7nEIyltttk5JBYdn9N8M4yiAMg+erAPqaLi2LO5zU7G+q5ah8+Ynom6smmArHcupHgf3o/mlDaq0r2L0x+00eBLoesOiuHKs2vSTVktWaq7tG7sjlaSwxuHuhfrRe46ABa0RUA=
 before_install:
-#- brew update
 - gem install cocoapods
-#- gem install fir-cli
 before_script:
 - echo $ENCRYPTION_SECRET
+- echo $CERT_PASSWORD
 - openssl aes-256-cbc -k "$ENCRYPTION_SECRET" -in scripts/profile/$PROFILE_NAME.mobileprovision.enc
   -d -a -out scripts/profile/$PROFILE_NAME.mobileprovision
 - openssl aes-256-cbc -k "$ENCRYPTION_SECRET" -in scripts/certs/dist.cer.enc -d -a
