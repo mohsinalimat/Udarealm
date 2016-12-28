@@ -249,6 +249,7 @@
 		AE5573C51DF9958E00C84A79 /* UICollectionViewCell+YuCloud.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UICollectionViewCell+YuCloud.m"; sourceTree = "<group>"; };
 		AEA7AE601E1343F900C44636 /* .travis.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .travis.yml; sourceTree = SOURCE_ROOT; };
 		AEEB2A5B1E13767F00F54093 /* add-key.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; name = "add-key.sh"; path = "scripts/add-key.sh"; sourceTree = SOURCE_ROOT; };
+		AEEB2A5C1E13831F00F54093 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = SOURCE_ROOT; };
 		CC0400324EEE4D18F956E932 /* Pods_Udarealm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Udarealm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0735C76D43F4E300744CC9F /* Pods-Udarealm.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Udarealm.release.xcconfig"; path = "Pods/Target Support Files/Pods-Udarealm/Pods-Udarealm.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -346,6 +347,7 @@
 				0362FB381CF30DDE003EDD82 /* main.m */,
 				03B076A21CF31DA600C1846B /* UdarealmPrefixHeader.pch */,
 				038152041D8401D000417ECD /* Udarealm.entitlements */,
+				AEEB2A5C1E13831F00F54093 /* .gitignore */,
 				AEA7AE601E1343F900C44636 /* .travis.yml */,
 				AEEB2A5B1E13767F00F54093 /* add-key.sh */,
 			);
