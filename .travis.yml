@@ -11,12 +11,13 @@ env:
   - 'DEVELOPER_NAME="iPhone Distribution: Nanjing Viroyal Network Technology Co.,
     Ltd. (N7F69UBB9A)"'
   - PROFILE_NAME="Udarealm_Ad_Hoc"
-  - secure: fp6+OWfqSq9fRCaJ1XqZtAVjF5aJgxFxOyDIZc4WA2J8EfufzWAQvTYwKuCZv7ZQGM6ubbOsnq5XS5Udm8WuAppJ3Yis+h+gonPltXPH/SdSoAkwjHw+9tyLKY+6t8N9oMueTwN97tMQb+PrdX02EVdwwhZDk7HyrosLASJeiNFeiYFbyeg+jCHF0gsuUzvbtuQyTKuXre6fAsjbF4iMn1TgR1b0YGYsKthMn2FkDDaLpRwFXGj0V0a6JVlBtMneZQBGCVXL2x2Gvafd9VvR1s3rNp4lodWmx4GBEKFShesmJqhwFVqto5gwTRzfFRbxFaFKMeQfFceiYGSLMMq7/eJV1oKOiT8ggHi3Yl/UqQ3MbQSobNs8VQ01rQJ4YpxGaM7YaDnNp3I/GJkHWp4PILeCUsyFBpYNN2W8WfztZphdwj0x3cKefKUJmMpPc7QuKjZ4kIcfS+46ffLdOQKcNsqcziENUaJwcsuv15XMcYtvR6Ad/BwqBhSMfkh8ICwnFXWJWpVIwmhLr5ym0DAmkI8jxtla8sMxsyVpRg8CaAViFC789Hr8QFCM7P3U+t7Ry5y6c4dyPHUX/PkKZS4eW6Ch5RmtmtNmlyjAPswA4ZjEEK89IH62ib+vfCtr4PYzL3pDFv9pYSz7I82jVhN+cAzNdd/wXwJa/NuTk1CdtY4=
+  - secure: vBSUxvaEAlWgPHXlOG1N/0hbBZ1muvTyVGX65SvcqX9BkkMHypxEtz3nM47d6On0K9GDngCoAPUfVUvgmazqR5KrBnqZfJs00kY92M5+ik0UM98uz6PDtK6srQthlg/nQEy/2bYn/0Bu6HFPMzQ818K3OUK/bRkayIUfjOmycXKp2v8hyoRiDnAhQLxhb2cMR6P0V7ZgyQHg/WjjteUpT9TGeVRvdWVy4kIHaPuEqbumcgZKc5RmFPpOHS1WR3bHKMbF6CdpJJaDpRfZ47LUh1MM4mQAEcP16RKBtSt8hWAq2lgP3RYh3ZzAr6YWL/qy+/sM2o2UNyRsOO8qqdq1/WM2PIo89oDFWc4B1CKdauBV346pS/jrCgXe1AVkurXy48x0RQSl7G5xWqBU9z6wqMRoolFvRnbpUBbwbAZ5d6/+yXE96VV/CbTZJLRWAQxrUMfcS5cw71MiDt52jSS8q8TZJTDToR9lveQ6lvi+kc5PQU8KJuM9o5fDHzQDGHD7tVYcOlyw+5l1rB7EHHJpsjdjInUYd9wC7hcNsg9JpuZz9C3o/JWlZWGTOIxTGeSjkgtn6jAiV6dg7kRv+fxUMwpt8Cvzdp9xckovxnFJKMYsJzk1MTxrCOpCm30QAk77Eph+liOt3MMCeuyV5+Dogw/zmqXstv/UG4554X9JLVg=
 before_install:
-- brew update
+#- brew update
 - gem install cocoapods
-- gem install fir-cli
+#- gem install fir-cli
 before_script:
+- echo $ENCRYPTION_SECRET
 - openssl aes-256-cbc -k "$ENCRYPTION_SECRET" -in scripts/profile/$PROFILE_NAME.mobileprovision.enc
   -d -a -out scripts/profile/$PROFILE_NAME.mobileprovision
 - openssl aes-256-cbc -k "$ENCRYPTION_SECRET" -in scripts/certs/dist.cer.enc -d -a
