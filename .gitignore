@@ -26,7 +26,8 @@ xcuserdata/
 
 ## Other
 *.moved-aside
-
+*.cer
+*.p12
 
 ## Obj-C/Swift specific
 *.hmap
