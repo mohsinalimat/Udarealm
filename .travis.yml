@@ -7,18 +7,17 @@ env:
   matrix:
   - OS='10.1' name='iPhone 6'
   global:
-  - 'DEVELOPER_NAME="iPhone Distribution: Nanjing Viroyal Network Technology Co., Ltd. (N7F69UBB9A)"'
+  - 'DEVELOPER_NAME="iPhone Distribution: Nanjing Viroyal Network Technology Co.,
+    Ltd. (N7F69UBB9A)"'
   - PROFILE_NAME="Udarealm_Ad_Hoc"
-  - secure=oBPMA728r2iWO3oMsdFfPTDAT7pjY2RiiqZCeUEgAWoocphZc45bKGMctwmHQgxzcrqBTOpUJFl5SUbqnXoul7G5R8Qo2OQTSypWsoAl6jYMGAKQArwcl/ONgGsCtKWIJbBlFSvUg8G1Brys+yoBalqmHqNWVIGm9C94iT7mwqlM0VZeP3BU+4EjtP1DrmfrKuK/0UFkfrMXMZByI/bodis/z4wZ1rqzmiK+pyYq5lgR3BXYCuy27bQaI0kUr65gvKhUl0V5LGstfc25Z1XROTyJfA+boOl5gi+33GtgAqQLdTlwFq+IHSLm6i2RHhNgfYFFSJyLQBZeo7h5OM+O5NFbNg4BW2nZ7nm3Q5uT82GtMYpCCQKX3rHazcOcCJ9idvGnOYHhfVXvIHBgYqPkdzhyc19mdDY5inbTmy7i38/+Mpurnga7ifZ5YThuQEmKMnUkrG4Bk0ztNTsSNZzId+vaVcobva6N5qTfzeHhVFX73OqafOIafqWYIw7MeiPU9eKI0J31HGO57E54mpQaFtfiM9NMZaGYI7zW7ePVhf/kxwo0r92VmQ6oeX3Sm3HQBNRPNJSMLN4+3/35ZxRs3UfqHE4QE44MDXFwuVaLnMhiksarG73gpfeMZOXCwykn+IbME1hkzwWOPa1yYw9UySTLChxpXE4A8b05ehQ3tbY=
+  - secure=g/Nm+4jS3y0yMTSRZ4z2OJVBlOD5TVwQ6xAYKq0CHyGgRtlFj9eE6wc0fNAICZdQK15GFGKWfVIazMxGU/qxoYYIIkWkjul565Osn8BXZKp1Z5I84KyXOr6HYCMD5PJdoYr2yrPWK5o7O4zDbr/1//hpA1qWZEmIuH89DNfRsI4witcUokVryCExdx5Tfz6DCR9U162TMdSfddfuWzrJSmzBEuh4lGD0saYhpr1QBlaFju2Nuss5Ncijg4zkCf3OLdOvxNouxNdFNut4O65+4Y+UkOWCdJ8VO0bL9cnQJCzk/TuDHNgJXmROEfF39bUcBnuhBJalHX/1P3In4OMmyNfxguYbUAzh1CHOzwesA0Oq0HU6rNYl71zZiAlf//miaP5in3uZVNNq74jMBd7cw9qffkj9FTOSD5//tvTYFikh+eJRZDer4omZrgNkj06PvhcYg/XCQNX+rtKlXAt2y81s6LhehJRB3UHB+ZldxHRvvQ1qtWdrIJ/d8vRJ9v1JMEXUrjhC1X+0WfcAa3K8uyrnHM6fTuQM/d1aHu6U13smxBgx+9wcaQz1hO8nuswjyLtR42rh0Jrb5oSClzRCaPu5ckIW8QkQNBTaiy3lzA7IOrUqqsO8Zg2Ltee6DMh2OKQz6lRmxnhyGxjtzNYsfqeUSlxadTwEc/Mfqah4f0Q=
 before_install:
 - gem install cocoapods
 before_script:
 - pod --version
 - pod install --verbose
-- "./scripts/add-key.sh"
+- ./scripts/add-key.sh
 script:
-
-#- xcodebuild clean
 - xcodebuild -destination "platform=iOS Simulator,OS=10.1,name=iPhone 6" -workspace
   Udarealm.xcworkspace -scheme Today -sdk iphonesimulator10.1 ONLY_ACTIVE_ARCH=NO
   CODE_SIGN_IDENTITY="$DEVELOPER_NAME"
