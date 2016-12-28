@@ -716,6 +716,7 @@
 					0362FB331CF30DDE003EDD82 = {
 						CreatedOnToolsVersion = 7.3;
 						DevelopmentTeam = N7F69UBB9A;
+						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
 								enabled = 1;
@@ -1033,6 +1034,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Udarealm.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = N7F69UBB9A;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/Udarealm/UdarealmPrefixHeader.pch";
 				INFOPLIST_FILE = Udarealm/Info.plist;
@@ -1050,6 +1053,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Udarealm.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = N7F69UBB9A;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/Udarealm/UdarealmPrefixHeader.pch";
 				INFOPLIST_FILE = Udarealm/Info.plist;
