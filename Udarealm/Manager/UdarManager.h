@@ -8,7 +8,6 @@
 
 #import <Foundation/Foundation.h>
 #import "ContactInfo.h"
-#import "GHContextMenuView.h"
 
 #define PROVINCE_BACKGROUND_COLOR       UIColorFromHex(0x34475c)
 #define CITY_BACKGROUND_COLOR           [UIColor whiteColor]
@@ -21,7 +20,6 @@ NS_ASSUME_NONNULL_BEGIN
 @interface UdarManager : NSObject
 
 @property (nullable, nonatomic, strong) ContactInfo     *selectedItem;
-@property (nonatomic, strong)   GHContextMenuView       *contextMenu;
 
 + (instancetype)sharedClient;
 

@@ -19,6 +19,8 @@ target 'Udarealm' do
   pod 'CocoaLumberjack'
   pod 'Firebase/Core'
 
+  pod 'GFBlurView'
+  
 end
 
 

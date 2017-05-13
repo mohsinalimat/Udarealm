@@ -91,10 +91,10 @@
     self.titleLabel.text = _province?:@"未匹配";
     
     if ([_province length]) {
-        self.results = [[CityInfo objectsWhere:@"province == %@", _province] sortedResultsUsingProperty:@"usage" ascending:NO];
+        self.results = [[CityInfo objectsWhere:@"province == %@", _province] sortedResultsUsingKeyPath:@"usage" ascending:NO];
         [self.collectionSub reloadData];
         
-        self.token = [[[CityInfo objectsWhere:@"province == %@", _province] sortedResultsUsingProperty:@"usage" ascending:NO] addNotificationBlock:^(RLMResults * _Nullable results, RLMCollectionChange * _Nullable change, NSError * _Nullable error) {
+        self.token = [[[CityInfo objectsWhere:@"province == %@", _province] sortedResultsUsingKeyPath:@"usage" ascending:NO] addNotificationBlock:^(RLMResults * _Nullable results, RLMCollectionChange * _Nullable change, NSError * _Nullable error) {
             self.results = results;
             [self.collectionSub reloadData];
         }];

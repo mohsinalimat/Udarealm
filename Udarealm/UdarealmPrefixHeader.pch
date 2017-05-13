@@ -15,6 +15,7 @@
 #import <Masonry/Masonry.h>
 #import "Chameleon.h"
 #import <pop/POP.h>
+#import <GFBlurView/GFBlurView.h>
 
 #import "CommPros.h"
 

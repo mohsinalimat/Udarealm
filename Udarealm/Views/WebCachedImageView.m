@@ -7,6 +7,7 @@
 //
 
 #import "WebCachedImageView.h"
+#import "UIView+WebCache.h"
 #import "UIImageView+WebCache.h"
 #import "AppDelegate.h"
 #import "GrayImageView.h"

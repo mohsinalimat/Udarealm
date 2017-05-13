@@ -49,7 +49,7 @@
 
 - (instancetype)init {
     if (self = [super init]) {
-        self.contextMenu = [[GHContextMenuView alloc] init];
+    
     }
     
     return self;

@@ -23,7 +23,6 @@
 		036C480B1D7660730081C75E /* CityInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 036C480A1D7660730081C75E /* CityInfo.m */; };
 		036C480E1D76658E0081C75E /* ProvinceInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 036C480D1D76658E0081C75E /* ProvinceInfo.m */; };
 		037342541DB784B800B84A6C /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 037342531DB784B800B84A6C /* JavaScriptCore.framework */; };
-		038151ED1D83F6B100417ECD /* GHContextMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 038151EC1D83F6B100417ECD /* GHContextMenuView.m */; };
 		038151F41D8401BC00417ECD /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 038151F31D8401BC00417ECD /* NotificationCenter.framework */; };
 		038151F81D8401BC00417ECD /* TodayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 038151F71D8401BC00417ECD /* TodayViewController.m */; };
 		038151FB1D8401BC00417ECD /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 038151F91D8401BC00417ECD /* MainInterface.storyboard */; };
@@ -138,8 +137,6 @@
 		036C480C1D76658E0081C75E /* ProvinceInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProvinceInfo.h; path = "Udarealm/Core Data/Objects/ProvinceInfo.h"; sourceTree = "<group>"; };
 		036C480D1D76658E0081C75E /* ProvinceInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProvinceInfo.m; path = "Udarealm/Core Data/Objects/ProvinceInfo.m"; sourceTree = "<group>"; };
 		037342531DB784B800B84A6C /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
-		038151EB1D83F6B100417ECD /* GHContextMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GHContextMenuView.h; sourceTree = "<group>"; };
-		038151EC1D83F6B100417ECD /* GHContextMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GHContextMenuView.m; sourceTree = "<group>"; };
 		038151F21D8401BC00417ECD /* Today.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Today.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		038151F31D8401BC00417ECD /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 		038151F61D8401BC00417ECD /* TodayViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TodayViewController.h; sourceTree = "<group>"; };
@@ -373,15 +370,6 @@
 			path = UdarUITests;
 			sourceTree = "<group>";
 		};
-		038151EA1D83F6B100417ECD /* GHContextMenuView */ = {
-			isa = PBXGroup;
-			children = (
-				038151EB1D83F6B100417ECD /* GHContextMenuView.h */,
-				038151EC1D83F6B100417ECD /* GHContextMenuView.m */,
-			);
-			path = GHContextMenuView;
-			sourceTree = "<group>";
-		};
 		038151F51D8401BC00417ECD /* Today */ = {
 			isa = PBXGroup;
 			children = (
@@ -461,7 +449,6 @@
 				AE200F111E0972F40089F39D /* PopMenu */,
 				AE200F1B1E0972F40089F39D /* XHRealTimeBlur */,
 				AE37D46A1DF84CD000794025 /* Chameleon */,
-				038151EA1D83F6B100417ECD /* GHContextMenuView */,
 				03821D221CF6839C00861215 /* PhotoTweaks */,
 				03B076AE1CF320F100C1846B /* AFViewShaker */,
 			);
@@ -844,7 +831,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -906,7 +893,6 @@
 				AE37D4871DF84CD000794025 /* ChameleonConstants.m in Sources */,
 				03821D3B1CF683CD00861215 /* NSUserDefaults+ChatSettings.m in Sources */,
 				03EBAEC51D1BB5FF008910F1 /* AvatarCache.m in Sources */,
-				038151ED1D83F6B100417ECD /* GHContextMenuView.m in Sources */,
 				AE37D4861DF84CD000794025 /* Chameleon_.m in Sources */,
 				039545EE1D740FFB00A8543D /* ProvincePageCell.m in Sources */,
 				03B076BE1CF331BA00C1846B /* BaseDataModal.m in Sources */,
@@ -1088,12 +1074,14 @@
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CODE_SIGN_ENTITLEMENTS = Today/Today.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = N7F69UBB9A;
 				INFOPLIST_FILE = Today/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.viroyal.Udarealm.today;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 			};
 			name = Debug;
@@ -1104,12 +1092,14 @@
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CODE_SIGN_ENTITLEMENTS = Today/Today.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = N7F69UBB9A;
 				INFOPLIST_FILE = Today/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.viroyal.Udarealm.today;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 			};
 			name = Release;

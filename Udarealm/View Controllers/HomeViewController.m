@@ -65,11 +65,11 @@
     
     [self setNeedsStatusBarAppearanceUpdate];
     
-    self.results = [[ProvinceInfo allObjects] sortedResultsUsingProperty:@"usage" ascending:NO];
+    self.results = [[ProvinceInfo allObjects] sortedResultsUsingKeyPath:@"usage" ascending:NO];
     self.failedCount = [[ContactInfo objectsWhere:@"state != 1"] count];
     [self.collectionMain reloadData];
     
-    self.token = [[[ProvinceInfo allObjects] sortedResultsUsingProperty:@"usage" ascending:NO] addNotificationBlock:^(RLMResults * _Nullable results, RLMCollectionChange * _Nullable change, NSError * _Nullable error) {
+    self.token = [[[ProvinceInfo allObjects] sortedResultsUsingKeyPath:@"usage" ascending:NO] addNotificationBlock:^(RLMResults * _Nullable results, RLMCollectionChange * _Nullable change, NSError * _Nullable error) {
         if ([change.insertions count] || [change.deletions count]) {
             self.results = results;
             [self.collectionMain reloadData];

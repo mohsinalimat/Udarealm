@@ -18,8 +18,7 @@
 
 #pragma mark - CityPageCell
 
-@interface CityPageCell () < UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, BaseDataModalDelegate,
-                            GHContextOverlayViewDataSource, GHContextOverlayViewDelegate>
+@interface CityPageCell () < UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, BaseDataModalDelegate >
 
 @property (nonatomic, strong)   UIImageView             *titleBackView;
 @property (nonatomic, strong)   UILabel                 *titleLabel;
@@ -96,27 +95,20 @@
 - (void)setCity:(NSString *)city {
     _city = [city copy];
     
-//    [UdarManager sharedClient].contextMenu.dataSource = self;
-//    [UdarManager sharedClient].contextMenu.delegate = self;
-    
     if (self.longPressGesture) {
 //        [self.collectionContacts removeGestureRecognizer:self.longPressGesture];
     }
-    
-    self.longPressGesture = [[UILongPressGestureRecognizer alloc] initWithTarget:[UdarManager sharedClient].contextMenu
-                                                                          action:@selector(longPressDetected:)];
-//    [self.collectionContacts addGestureRecognizer:self.longPressGesture];
     
     if ([UdarManager sharedClient].selectedItem == nil) {
         if ([_city isEqualToString:@"ads"]) {
             
         }
         else if ([_city length]) {
-            self.results = [[ContactInfo objectsWhere:@"city == %@", _city] sortedResultsUsingProperty:@"usage" ascending:NO];
+            self.results = [[ContactInfo objectsWhere:@"city == %@", _city] sortedResultsUsingKeyPath:@"usage" ascending:NO];
             [self.collectionContacts reloadData];
             self.titleLabel.text = _city;
             
-            self.token = [[[ContactInfo objectsWhere:@"city == %@", _city] sortedResultsUsingProperty:@"usage" ascending:NO] addNotificationBlock:^(RLMResults * _Nullable results, RLMCollectionChange * _Nullable change, NSError * _Nullable error) {
+            self.token = [[[ContactInfo objectsWhere:@"city == %@", _city] sortedResultsUsingKeyPath:@"usage" ascending:NO] addNotificationBlock:^(RLMResults * _Nullable results, RLMCollectionChange * _Nullable change, NSError * _Nullable error) {
                 if ([change.insertions count] || [change.deletions count]) {
                     self.results = results;
                     [self.collectionContacts reloadData];
@@ -124,11 +116,11 @@
             }];
         }
         else {
-            self.results = [[ContactInfo objectsWhere:@"state != 1"] sortedResultsUsingProperty:@"usage" ascending:NO];
+            self.results = [[ContactInfo objectsWhere:@"state != 1"] sortedResultsUsingKeyPath:@"usage" ascending:NO];
             [self.collectionContacts reloadData];
             self.titleLabel.text = [NSString stringWithFormat:@"未匹配: %ld", (long)[self.results count]];
             
-            self.token = [[[ContactInfo objectsWhere:@"state != 1"] sortedResultsUsingProperty:@"usage" ascending:NO] addNotificationBlock:^(RLMResults * _Nullable results, RLMCollectionChange * _Nullable change, NSError * _Nullable error) {
+            self.token = [[[ContactInfo objectsWhere:@"state != 1"] sortedResultsUsingKeyPath:@"usage" ascending:NO] addNotificationBlock:^(RLMResults * _Nullable results, RLMCollectionChange * _Nullable change, NSError * _Nullable error) {
                 if ([change.insertions count] || [change.deletions count]) {
                     self.titleLabel.text = [NSString stringWithFormat:@"未匹配: %ld", (long)[results count]];
                     self.results = results;
@@ -240,25 +232,6 @@
     
     CGFloat size = [ContactCell cellSize];
     return CGSizeMake(size, size);
-}
-
-#pragma mark - GHContextOverlayViewDataSource, GHContextOverlayViewDelegate
-
-- (BOOL)shouldShowMenuAtPoint:(CGPoint)point {
-    NSIndexPath *indexPath = [self.collectionContacts indexPathForItemAtPoint:point];
-    return indexPath != nil;
-}
-
-- (NSInteger)numberOfMenuItems {
-    return 5;
-}
-
-- (UIImage *)imageForItemAtIndex:(NSInteger)index {
-    return [UIImage imageNamed:@"icon_contact_avatar_default"];
-}
-
-- (void)didSelectItemAtIndex:(NSInteger)selectedIndex forMenuAtPoint:(CGPoint)point {
-    
 }
 
 - (void)dealloc {

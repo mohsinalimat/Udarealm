@@ -218,7 +218,7 @@ NSString *parseContactData = @"parseContactData";
 - (void)saveGroupDefaults {
     NSUserDefaults *defaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.com.viroyal.TodayExtensionSharingDefaults"];
     
-    RLMResults *objects = [[ContactInfo objectsWhere:@"state == 1"] sortedResultsUsingProperty:@"usage" ascending:NO];
+    RLMResults *objects = [[ContactInfo objectsWhere:@"state == 1"] sortedResultsUsingKeyPath:@"usage" ascending:NO];
     NSMutableArray *contacts = [NSMutableArray arrayWithCapacity:10];
     NSInteger index = 0;
     while (index < [objects count] && [contacts count] < MIN(32, [objects count])) {
